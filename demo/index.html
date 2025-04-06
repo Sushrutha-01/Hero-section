@@ -1,0 +1,142 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pha5e Hero Section</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background:#3aafb9;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        .navbar-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+        .navbar-menu a {
+            color: #fff;
+            margin-left: 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .navbar-menu a:hover {
+            color: #00ffff;
+            transform: scale(1.1);
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start; /* Move content to the left */
+            gap: 20px;
+            width: 100%;
+            padding-left: 40px;
+        }
+        .hero-title {
+            
+            font-size: 5rem;
+            font-weight: bold; /* Make text bold */
+            line-height: 1.2;
+            text-align: left; /* Align text to the left */
+            align-self: flex-start; /* Ensure it stays left-aligned */
+            transition: transform 0.3s ease-in-out;
+            color: rgb(0, 2, 3);
+        }
+        .hero-title:hover {
+            transform: scale(1.2);
+        }
+        .hero-subtitle {
+            font-size: 1.5rem;
+        }
+        .hero-btn {
+            margin-top: 20px;
+        }
+        .animated-image {
+            width: 250px;
+            height: auto;
+            transition: transform 0.5s linear;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">Pha5e</a>
+        <div class="navbar-menu">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-content">
+            
+            <div>
+                <h1 class="hero-title" id="heroTitle">"The only way to do great work is to love what you do." - Steve Jobs </h1>
+                <p class="hero-subtitle">Innovate. Create. Inspire.</p>
+                <img src="innov.jpg" class="animated-image" id="image1">
+            </div>
+        </div>
+        
+        
+    </section>
+    
+    
+    <script>
+        const image = document.getElementById("image1");
+
+        image.addEventListener("mousemove", (event) => {
+            const rect = image.getBoundingClientRect();
+            const x = event.clientX - rect.left - rect.width / 2;
+            const y = event.clientY - rect.top - rect.height / 2;
+
+            gsap.to(image, {
+                x: x * 1.0,
+                y: y * 1.0,
+                duration: 0.8,
+                ease: "power2.out"
+            });
+        });
+
+        image.addEventListener("mouseleave", () => {
+            gsap.to(image, { x: 0, y: 0, duration: 0.2, ease: "power2.out" });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
